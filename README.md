@@ -1,2 +1,2 @@
-# Javascript-boilerplate
-Javascript Boilerplate med HTML og CSS
+# Store Front
+Store Front
