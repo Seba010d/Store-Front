@@ -1,1 +1,14 @@
 // @use "reset";
+@use "variables" as *;
+@use "header";
+@use "footer";
+
+body {
+  margin: 0;
+  background: $clr-background;
+  font-family: "Segoe UI", sans-serif;
+  //   color: $clr-primary-text;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

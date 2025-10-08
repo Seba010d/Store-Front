@@ -1,1 +1,48 @@
-/*# sourceMappingURL=style.css.map */
+header {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.0509803922);
+}
+
+#logo {
+  color: #2563eb;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.search-cart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+input[type=text] {
+  background: #e5e7eb;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  width: 150px;
+}
+
+.cart i {
+  font-size: 1.5rem;
+}
+
+footer {
+  background: #e5e7eb;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+body {
+  margin: 0;
+  background: #f9fafb;
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}/*# sourceMappingURL=style.css.map */
