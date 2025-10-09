@@ -1,5 +1,6 @@
 import { saveData, loadData } from "./modules/localStorage.js";
 import { getProducts, getCategories, getProductById, searchProducts } from "./modules/api.js";
+import { renderProductCard, renderProductDetails, renderCart, renderCategories, renderLoading } from "./modules/view.js";
 
 (async () => {
   console.log("=== TESTER getProducts ===");
