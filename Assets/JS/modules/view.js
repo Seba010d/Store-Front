@@ -93,3 +93,22 @@ export function renderLoading() {
     </section>
   `;
 }
+
+export function renderProductsList(products) {
+  const container = document.querySelector("#app");
+
+  if (!products || products.length === 0) {
+    container.innerHTML = `
+			<section class="product-list">
+				<p>Ingen produkter fundet.</p>
+			</section>
+		`;
+    return;
+  }
+
+  container.innerHTML = `
+		<section class="product-list">
+			${products.map((p) => renderProductCard(p)).join("")}
+		</section>
+	`;
+}
