@@ -40,11 +40,3 @@ export function clearCart() {
   persist([]);
   return [];
 }
-
-// export for tests or debugging
-export default {
-  addToCart,
-  getCart,
-  removeFromCart,
-  clearCart,
-};
