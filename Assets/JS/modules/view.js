@@ -64,6 +64,19 @@ export function renderCart(cartItems) {
   `;
 }
 
+export function updateCartBadge(count) {
+  const badge = document.querySelector(".cart-badge");
+  if (!badge) return;
+  const n = Number(count) || 0;
+  if (n <= 0) {
+    badge.textContent = "0";
+    badge.style.display = "none";
+  } else {
+    badge.textContent = String(n);
+    badge.style.display = "inline-flex";
+  }
+}
+
 export function renderCategories(categories) {
   const container = document.querySelector("#app");
   container.innerHTML = `

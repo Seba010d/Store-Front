@@ -1,6 +1,6 @@
 import { saveData, loadData } from "./modules/localStorage.js";
 import { getProducts, getCategories, getProductById, searchProducts } from "./modules/api.js";
-import { renderProductCard, renderProductDetails, renderCart, renderCategories, renderLoading, renderProductsList } from "./modules/view.js";
+import { renderProductCard, renderProductDetails, renderCart, renderCategories, renderLoading, renderProductsList, updateCartBadge } from "./modules/view.js";
 import { addToCart, getCart, removeFromCart, clearCart } from "./modules/cart.js";
 
 async function initApp() {
@@ -14,6 +14,13 @@ async function initApp() {
   const categories = await getCategories();
 
   renderProductsList(products);
+
+  try {
+    const currentCart = getCart();
+    updateCartBadge(currentCart.length);
+  } catch (err) {
+    console.warn("Kunne ikke opdatere cart badge på init:", err);
+  }
 
   // Hvis man klikker på logoet
   const logo = document.querySelector("#logo");
@@ -33,6 +40,7 @@ async function initApp() {
       const product = await getProductById(id);
       if (product) {
         addToCart(product);
+        updateCartBadge(getCart().length);
         console.log("Produkt " + product.id + " lagt i kurven");
       }
       return;
@@ -43,6 +51,7 @@ async function initApp() {
       const id = e.target.dataset.id;
       removeFromCart(Number(id));
       renderCart(getCart());
+      updateCartBadge(getCart().length);
       return;
     }
 
@@ -51,6 +60,7 @@ async function initApp() {
       alert("Checkout ikke implementeret endnu!");
       clearCart();
       renderCart(getCart());
+      updateCartBadge(getCart().length);
       return;
     }
 
@@ -71,6 +81,7 @@ async function initApp() {
     cartIcon.addEventListener("click", () => {
       const cartItems = getCart();
       renderCart(cartItems);
+      updateCartBadge(cartItems.length);
     });
   }
 
